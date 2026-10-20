@@ -1,0 +1,36 @@
+# BASE DE CONOCIMIENTO: diagnóstico de problemas comunes de un computador
+#
+# Formato (una regla por línea, campos separados por "|"):
+#   id | antecedentes (separados por coma) | consecuentes (separados por coma) | recomendación (opcional)
+#
+# - Una regla se puede disparar cuando TODOS sus antecedentes están en la memoria de trabajo.
+# - Si la regla tiene recomendación, esa recomendación se muestra al final.
+# - Las líneas que empiezan con # son comentarios y se ignoran.
+# - Las recomendaciones son orientativas: no confirman el fallo.
+
+# ---------- INTERNET ----------
+# router_luz_roja = la luz de Internet del router está roja o apagada (depende del modelo)
+R01 | sin_internet, otros_dispositivos_sin_internet | problema_en_red |
+R02 | problema_en_red, router_luz_roja | falla_con_proveedor | Reiniciar el router (desconectarlo 30 segundos). Si la luz de Internet sigue roja o apagada, contactar al proveedor: el fallo parece estar en el servicio.
+R03 | problema_en_red, router_sin_luces | revisar_alimentacion_router | Verificar que el router esté conectado a la corriente y encendido; probar otra toma. Si no enciende, puede estar dañado el router o su adaptador.
+R04 | sin_internet, otros_dispositivos_con_internet | problema_solo_en_este_equipo |
+R05 | problema_solo_en_este_equipo, wifi_desconectado | revisar_adaptador_wifi | Activar el WiFi del equipo (interruptor físico, tecla de función, modo avión). Si no aparece ninguna red, revisar el controlador del adaptador en el Administrador de dispositivos.
+R06 | problema_solo_en_este_equipo, wifi_conectado | problema_de_configuracion_red | El equipo está conectado a la red pero sin acceso. Probar: olvidar y volver a conectar la red, renovar la IP (ipconfig /release y luego ipconfig /renew en Windows), limpiar la caché DNS (ipconfig /flushdns) o cambiar el servidor DNS.
+
+# ---------- LENTITUD ----------
+R07 | pc_lento, uso_ram_alto | memoria_saturada |
+R08 | pc_lento, uso_disco_alto | disco_saturado |
+R09 | pc_lento, uso_cpu_alto | procesador_saturado |
+R10 | memoria_saturada, muchos_programas_abiertos | exceso_de_programas | Hay demasiados programas abiertos consumiendo memoria. Cerrar los que no se usen y desactivar los programas innecesarios al inicio.
+R11 | memoria_saturada, pocos_programas_abiertos | ram_insuficiente |
+R12 | disco_saturado, disco_hdd | hdd_lento |
+R13 | disco_saturado, disco_casi_lleno | falta_espacio | El disco casi no tiene espacio libre. Liberar espacio: borrar archivos grandes o innecesarios, vaciar la papelera y desinstalar programas sin uso.
+R14 | procesador_saturado, proceso_desconocido | posible_malware | Un proceso desconocido consume mucho procesador. Revisarlo en el Administrador de tareas y hacer un análisis completo con un antivirus. Es una sospecha, no confirma que haya malware.
+R15 | ram_insuficiente, hdd_lento | necesita_actualizar_hardware | Con poca RAM y disco duro mecánico, el equipo probablemente necesita una actualización de hardware: más RAM y un SSD.
+R16 | ram_insuficiente | recomendar_ampliar_ram | La memoria RAM parece insuficiente para el uso actual. Considerar ampliarla.
+R17 | hdd_lento | recomendar_cambiar_a_ssd | El disco duro mecánico (HDD) está saturado. Cambiarlo por un SSD suele mejorar mucho la velocidad.
+
+# ---------- ENCENDIDO ----------
+R18 | pc_no_enciende, sin_luces | sin_energia_en_equipo |
+R19 | sin_energia_en_equipo, otro_aparato_no_funciona_en_toma | problema_toma_corriente | El problema parece estar en la toma de corriente o en la regleta. Probar el equipo en otra toma o sin regleta.
+R20 | sin_energia_en_equipo, otro_aparato_funciona_en_toma | posible_falla_fuente_poder | El equipo no recibe energía aunque la toma funciona. Posible falla del cable de corriente o de la fuente de poder. Probar con otro cable; si persiste, que lo revise un técnico.

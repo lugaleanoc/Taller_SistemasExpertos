@@ -1,0 +1,6 @@
+# Caso: el computador está muy lento
+pc_lento
+uso_ram_alto
+pocos_programas_abiertos
+uso_disco_alto
+disco_hdd

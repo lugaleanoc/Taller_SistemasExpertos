@@ -1,0 +1,4 @@
+# Caso: el computador no enciende
+pc_no_enciende
+sin_luces
+otro_aparato_funciona_en_toma

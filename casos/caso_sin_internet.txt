@@ -1,0 +1,4 @@
+# Caso: no hay Internet solo en este computador
+sin_internet
+otros_dispositivos_con_internet
+wifi_conectado
