@@ -5,8 +5,6 @@
 #
 # - Una regla se puede disparar cuando TODOS sus antecedentes están en la memoria de trabajo.
 # - Si la regla tiene recomendación, esa recomendación se muestra al final.
-# - Las líneas que empiezan con # son comentarios y se ignoran.
-# - Las recomendaciones son orientativas: no confirman el fallo.
 
 # ---------- INTERNET ----------
 # router_luz_roja = la luz de Internet del router está roja o apagada (depende del modelo)

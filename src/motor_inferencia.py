@@ -3,9 +3,9 @@
 motor_inferencia.py
 
 Motor de inferencia con encadenamiento hacia adelante (forward chaining).
-Parte del motor entregado por el profesor, pero:
+
   - las reglas y los hechos se leen desde archivos .txt
-  - solo cuentan los hechos que el usuario realmente tiene (corrige el error de los valores False)
+  - solo cuentan los hechos que el usuario realmente tiene
   - la resolución de conflictos usa 4 criterios (ver elegir_regla)
   - el resultado se guarda paso a paso para poder mostrarlo
 
@@ -15,7 +15,6 @@ Uso desde la terminal:
 """
 
 import sys
-
 
 # ---------------------------------------------------------------
 # 1. LECTURA DE ARCHIVOS
